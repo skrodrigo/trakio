@@ -61,7 +61,9 @@ const config: Config = {
     			scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
     			spotlight: 'spotlight 2s ease .75s 1 forwards',
     			grid: 'grid 15s linear infinite',
-    			'shiny-text': 'shiny-text 8s infinite'
+    			'shiny-text': 'shiny-text 8s infinite',
+    			'accordion-down': 'accordion-down 0.2s ease-out',
+    			'accordion-up': 'accordion-up 0.2s ease-out'
     		},
     		keyframes: {
     			scroll: {
@@ -83,6 +85,22 @@ const config: Config = {
     				},
     				'30%, 60%': {
     					'background-position': 'calc(100% + var(--shiny-width)) 0'
+    				}
+    			},
+    			'accordion-down': {
+    				from: {
+    					height: '0'
+    				},
+    				to: {
+    					height: 'var(--radix-accordion-content-height)'
+    				}
+    			},
+    			'accordion-up': {
+    				from: {
+    					height: 'var(--radix-accordion-content-height)'
+    				},
+    				to: {
+    					height: '0'
     				}
     			}
     		}
