@@ -18,31 +18,32 @@ export default function TestemonialsSection() {
 const testimonials = [
 	{
 		quote:
-			"It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-		name: "Charles Dickens",
-		title: "A Tale of Two Cities",
+			"A Trakio me ajudou a transformar meus dados em insights valiosos! A possibilidade de configurar métricas personalizadas e visualizá-las em tempo real fez toda a diferença no acompanhamento dos meus projetos.",
+		name: "Mariana Silva",
+		title: "Gerente de Projetos",
 	},
 	{
 		quote:
-			"To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-		name: "William Shakespeare",
-		title: "Hamlet",
-	},
-	{
-		quote: "All that we see or seem is but a dream within a dream.",
-		name: "Edgar Allan Poe",
-		title: "A Dream Within a Dream",
+			"Com a integração via webhooks, conseguimos automatizar a coleta de dados, poupando horas de trabalho manual. É a ferramenta ideal para quem precisa de controle e agilidade ao monitorar métricas.",
+		name: "Lucas Almeida",
+		title: "Analista de Dados",
 	},
 	{
 		quote:
-			"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-		name: "Jane Austen",
-		title: "Pride and Prejudice",
+			"A simplicidade e funcionalidade da Trakio são incríveis. Comecei com o plano gratuito, e rapidamente fiz o upgrade para o premium. Vale cada centavo para quem busca relatórios precisos e customizados.",
+		name: "Ana Pereira",
+		title: "Empreendedora",
 	},
 	{
 		quote:
-			"Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-		name: "Herman Melville",
-		title: "Moby-Dick",
+			"Antes da Trakio, manter métricas atualizadas era um desafio. Agora, tudo flui de maneira automática, e posso focar no que realmente importa: tomar decisões baseadas em dados!",
+		name: "Rafael Costa",
+		title: "Consultor de Negócios",
+	},
+	{
+		quote:
+			"A interface intuitiva e os gráficos interativos da Trakio tornam o acompanhamento de métricas uma tarefa fácil e até prazerosa. Recomendo fortemente para qualquer pessoa que precise monitorar dados regularmente.",
+		name: "Camila Souza",
+		title: "Especialista em Marketing",
 	},
 ];

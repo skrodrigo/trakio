@@ -12,7 +12,7 @@ export default function StepsSection() {
 					<div className="grid gap-6 lg:grid-cols-3">
 						<div className="flex flex-col items-center text-center">
 							<div className="mb-4 p-4 rounded-full flex bg-zinc-900 border border-zinc-800  justify-center items-center">
-								<Users className="h-10 w-10 text-[#FFFFFF]" />
+								<Users strokeWidth={1} className="h-10 w-10 text-[#FFFFFF]" />
 							</div>
 							<h3 className="text-xl font-bold mb-2">1. Conecte Seus Dados</h3>
 							<p className="text-[#e5e7eb] opacity-70">
@@ -21,7 +21,10 @@ export default function StepsSection() {
 						</div>
 						<div className="flex flex-col items-center text-center">
 							<div className="mb-4 p-4 rounded-full flex bg-zinc-900 border border-zinc-800  justify-center items-center">
-								<Sparkles className="h-10 w-10 text-[#FFFFFF]" />
+								<Sparkles
+									strokeWidth={1}
+									className="h-10 w-10 text-[#FFFFFF]"
+								/>
 							</div>
 							<h3 className="text-xl font-bold mb-2">
 								2. Personalize Seu Painel
@@ -33,7 +36,10 @@ export default function StepsSection() {
 						</div>
 						<div className="flex flex-col items-center text-center">
 							<div className="mb-4 p-4 rounded-full flex bg-zinc-900 border border-zinc-800  justify-center items-center">
-								<BarChart3 className="h-10 w-10 text-[#FFFFFF]" />
+								<BarChart3
+									strokeWidth={1}
+									className="h-10 w-10 text-[#FFFFFF]"
+								/>
 							</div>
 							<h3 className="text-xl font-bold mb-2">3. Obtenha Insights</h3>
 							<p className="text-[#e5e7eb] opacity-70">
