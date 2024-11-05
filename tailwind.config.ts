@@ -60,7 +60,8 @@ const config: Config = {
     			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
     			scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
     			spotlight: 'spotlight 2s ease .75s 1 forwards',
-    			grid: 'grid 15s linear infinite'
+    			grid: 'grid 15s linear infinite',
+    			'shiny-text': 'shiny-text 8s infinite'
     		},
     		keyframes: {
     			scroll: {
@@ -74,6 +75,14 @@ const config: Config = {
     				},
     				'100%': {
     					transform: 'translateY(0)'
+    				}
+    			},
+    			'shiny-text': {
+    				'0%, 90%, 100%': {
+    					'background-position': 'calc(-100% - var(--shiny-width)) 0'
+    				},
+    				'30%, 60%': {
+    					'background-position': 'calc(100% + var(--shiny-width)) 0'
     				}
     			}
     		}
