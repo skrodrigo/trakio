@@ -46,7 +46,7 @@ export default function PricingSection() {
 							<CardFooter>
 								<Button
 									variant="default"
-									className="bg-[#FFFFFF] text-[#09090b] w-full"
+									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
 								>
 									Começar
 								</Button>
@@ -80,7 +80,7 @@ export default function PricingSection() {
 							<CardFooter>
 								<Button
 									variant="default"
-									className="bg-[#FFFFFF] text-[#09090b] w-full"
+									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
 								>
 									Começar
 								</Button>
@@ -114,7 +114,7 @@ export default function PricingSection() {
 							<CardFooter>
 								<Button
 									variant="default"
-									className="bg-[#FFFFFF] text-[#09090b] w-full"
+									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
 								>
 									Começar
 								</Button>
