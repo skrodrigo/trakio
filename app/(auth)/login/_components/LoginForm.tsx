@@ -60,7 +60,7 @@ export default function LoginForm() {
 	}
 
 	return (
-		<div className="w-full bg-[#18181b] max-w-md p-10 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800">
+		<div className="w-full bg-[#18181b] max-w-md p-8 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800">
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 					<FormField
@@ -68,14 +68,14 @@ export default function LoginForm() {
 						name="email"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel className="text-zinc-200">Email</FormLabel>
 								<FormControl>
 									<Input
 										placeholder="Seu Endereço de Email"
 										{...field}
 										aria-invalid={!!form.formState.errors.email}
 										aria-describedby="email-error"
-										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border py-6 bg-zinc-800 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -88,7 +88,7 @@ export default function LoginForm() {
 						name="password"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Senha</FormLabel>
+								<FormLabel className="text-zinc-200">Senha</FormLabel>
 								<FormControl>
 									<Input
 										type="password"
@@ -96,7 +96,7 @@ export default function LoginForm() {
 										{...field}
 										aria-invalid={!!form.formState.errors.password}
 										aria-describedby="password-error"
-										className="border  p-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border bg-zinc-800 py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -124,9 +124,9 @@ export default function LoginForm() {
 				</form>
 			</Form>
 			<div className="text-center">
-				<p className="text-muted-foreground mt-2">
+				<p className="text-zinc-700 mt-2">
 					Não tem uma conta?{" "}
-					<Link href="/register" className="text-primary hover:underline">
+					<Link href="/register" className="text-blue-500 hover:underline">
 						Registre-se
 					</Link>
 				</p>
