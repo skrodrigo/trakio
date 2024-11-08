@@ -6,7 +6,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Lock } from "lucide-react";
 import React from "react";
 
 export default function PricingSection() {
@@ -114,8 +114,10 @@ export default function PricingSection() {
 							<CardFooter>
 								<Button
 									variant="default"
+									disabled
 									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
 								>
+									<Lock className="inline-block mr-2" />
 									Começar
 								</Button>
 							</CardFooter>
