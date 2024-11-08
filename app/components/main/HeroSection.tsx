@@ -16,13 +16,10 @@ export default function HeroSection() {
 						sobre suas métricas.
 					</p>
 					<div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center items-center mt-6">
-						<Button
-							size="lg"
-							className="bg-[#FFFFFF] text-[#09090b] hover:bg-[#e5e7eb]"
-						>
+						<Button size="lg" variant="default">
 							Começar
 						</Button>
-						<Button size="lg" variant="link" className="text-white">
+						<Button size="lg" variant="link">
 							Saiba Mais
 						</Button>
 					</div>

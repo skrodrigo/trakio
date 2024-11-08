@@ -9,13 +9,16 @@ export const metadata: Metadata = {
 		"para quem precisa monitorar dados e ter uma visão clara de desempenho, com o diferencial dos webhooks, automação. Simples e fácil de lembrar, sugere monitoramento.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode;
-}>) {
+}) {
 	return (
-		<html lang="pt-BR" className="dark">
+		<html
+			lang="pt-BR"
+			className="bg-[#09090b] dark selection:bg-zinc-900 selection:text-white"
+		>
 			<body className={cn(GeistSans.className)}>{children}</body>
 		</html>
 	);

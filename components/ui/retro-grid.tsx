@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export default function RetroGrid({
 	className,
-	angle = 65,
+	angle = 0,
 }: {
 	className?: string;
 	angle?: number;
@@ -10,7 +10,7 @@ export default function RetroGrid({
 	return (
 		<div
 			className={cn(
-				"pointer-events-none absolute size-full overflow-hidden opacity-90 [perspective:200px]",
+				"pointer-events-none absolute size-full overflow-hidden opacity-40  [perspective:200px]",
 				className,
 			)}
 			style={{ "--grid-angle": `${angle}deg` } as React.CSSProperties}
