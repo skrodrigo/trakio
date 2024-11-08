@@ -1,6 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { supabase } from "../shared/supabase";
+import { supabase } from "../lib/supabase";
 import type { AuthState, AuthUser } from "../types/auth";
 
 export function useAuth() {
@@ -23,6 +23,8 @@ export function useAuth() {
 				if (event === "SIGNED_OUT") {
 					router.push("/login");
 					router.refresh();
+				} else if (event === "SIGNED_IN") {
+					router.push("/dashboard");
 				}
 			},
 		);

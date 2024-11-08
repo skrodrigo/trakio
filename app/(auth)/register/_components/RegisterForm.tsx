@@ -1,7 +1,8 @@
 "use client";
 
+import { Icons } from "@/app/components/icons";
+import { supabase } from "@/app/lib/supabase";
 import { registerSchema } from "@/app/schemas/schemas";
-import { supabase } from "@/app/shared/supabase";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -17,7 +18,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import type z from "zod";
+import type { z } from "zod";
 
 export default function RegisterForm() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -52,15 +53,16 @@ export default function RegisterForm() {
 			console.error("Erro de autenticação:", authError);
 
 			if (authError) {
-				if (authError.message.includes("User already registered")) {
-					form.setError("email", {
-						message: "Este email já está registrado",
-					});
-				} else {
-					form.setError("root", {
-						message: "Erro ao criar conta. Tente novamente.",
-					});
-				}
+				form.setError(
+					authError.message.includes("User already registered")
+						? "email"
+						: "root",
+					{
+						message: authError.message.includes("User already registered")
+							? "Este e-mail já está registrado"
+							: "Erro ao criar conta. Tente novamente.",
+					},
+				);
 				return;
 			}
 
@@ -77,17 +79,7 @@ export default function RegisterForm() {
 	}
 
 	return (
-		<div className="w-full max-w-md space-y-8">
-			<div className="text-center">
-				<h2 className="text-2xl font-bold">Criar uma conta</h2>
-				<p className="text-muted-foreground mt-2">
-					Já tem uma conta?{" "}
-					<Link href="/login" className="text-primary hover:underline">
-						Faça login
-					</Link>
-				</p>
-			</div>
-
+		<div className="w-full max-w-md p-10 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800">
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 					<FormField
@@ -97,7 +89,13 @@ export default function RegisterForm() {
 							<FormItem>
 								<FormLabel>Nome</FormLabel>
 								<FormControl>
-									<Input placeholder="Seu nome" {...field} />
+									<Input
+										placeholder="Seu nome"
+										{...field}
+										aria-invalid={!!form.formState.errors.name}
+										aria-describedby="name-error"
+										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -111,7 +109,13 @@ export default function RegisterForm() {
 							<FormItem>
 								<FormLabel>Email</FormLabel>
 								<FormControl>
-									<Input placeholder="seu@email.com" {...field} />
+									<Input
+										placeholder="seu@email.com"
+										{...field}
+										aria-invalid={!!form.formState.errors.email}
+										aria-describedby="email-error"
+										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -125,7 +129,14 @@ export default function RegisterForm() {
 							<FormItem>
 								<FormLabel>Senha</FormLabel>
 								<FormControl>
-									<Input type="password" placeholder="••••••" {...field} />
+									<Input
+										type="password"
+										placeholder="••••••"
+										{...field}
+										aria-invalid={!!form.formState.errors.password}
+										aria-describedby="password-error"
+										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -139,7 +150,14 @@ export default function RegisterForm() {
 							<FormItem>
 								<FormLabel>Confirmar Senha</FormLabel>
 								<FormControl>
-									<Input type="password" placeholder="••••••" {...field} />
+									<Input
+										type="password"
+										placeholder="••••••"
+										{...field}
+										aria-invalid={!!form.formState.errors.confirmPassword}
+										aria-describedby="confirmPassword-error"
+										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -152,11 +170,27 @@ export default function RegisterForm() {
 						</p>
 					)}
 
-					<Button type="submit" className="w-full" disabled={isLoading}>
-						{isLoading ? "Criando conta..." : "Criar conta"}
+					<Button
+						type="submit"
+						className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+						disabled={isLoading}
+					>
+						{isLoading ? (
+							<Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+						) : (
+							"Criar conta"
+						)}
 					</Button>
 				</form>
 			</Form>
+			<div className="text-center">
+				<p className="text-muted-foreground mt-2">
+					Já tem uma conta?{" "}
+					<Link href="/login" className="text-primary hover:underline">
+						Faça login
+					</Link>
+				</p>
+			</div>
 		</div>
 	);
 }

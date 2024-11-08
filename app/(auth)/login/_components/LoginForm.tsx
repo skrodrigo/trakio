@@ -1,7 +1,8 @@
 "use client";
 
+import { Icons } from "@/app/components/icons";
+import { supabase } from "@/app/lib/supabase";
 import { loginSchema } from "@/app/schemas/schemas";
-import { supabase } from "@/app/shared/supabase";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
@@ -59,17 +60,7 @@ export default function LoginForm() {
 	}
 
 	return (
-		<div className="w-full max-w-md space-y-8">
-			<div className="text-center">
-				<h2 className="text-2xl font-bold">Entrar na sua conta</h2>
-				<p className="text-muted-foreground mt-2">
-					Não tem uma conta?{" "}
-					<Link href="/register" className="text-primary hover:underline">
-						Registre-se
-					</Link>
-				</p>
-			</div>
-
+		<div className="w-full bg-[#18181b] max-w-md p-10 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800">
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
 					<FormField
@@ -79,7 +70,13 @@ export default function LoginForm() {
 							<FormItem>
 								<FormLabel>Email</FormLabel>
 								<FormControl>
-									<Input placeholder="seu@email.com" {...field} />
+									<Input
+										placeholder="Seu Endereço de Email"
+										{...field}
+										aria-invalid={!!form.formState.errors.email}
+										aria-describedby="email-error"
+										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -93,7 +90,14 @@ export default function LoginForm() {
 							<FormItem>
 								<FormLabel>Senha</FormLabel>
 								<FormControl>
-									<Input type="password" placeholder="••••••" {...field} />
+									<Input
+										type="password"
+										placeholder="Sua Senha"
+										{...field}
+										aria-invalid={!!form.formState.errors.password}
+										aria-describedby="password-error"
+										className="border  p-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -101,16 +105,32 @@ export default function LoginForm() {
 					/>
 
 					{form.formState.errors.root && (
-						<p className="text-sm text-destructive">
+						<p id="login-error" className="text-sm text-destructive">
 							{form.formState.errors.root.message}
 						</p>
 					)}
 
-					<Button type="submit" className="w-full" disabled={isLoading}>
-						{isLoading ? "Entrando..." : "Entrar"}
+					<Button
+						type="submit"
+						className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+						disabled={isLoading}
+					>
+						{isLoading ? (
+							<Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+						) : (
+							"Entrar"
+						)}
 					</Button>
 				</form>
 			</Form>
+			<div className="text-center">
+				<p className="text-muted-foreground mt-2">
+					Não tem uma conta?{" "}
+					<Link href="/register" className="text-primary hover:underline">
+						Registre-se
+					</Link>
+				</p>
+			</div>
 		</div>
 	);
 }

@@ -1,26 +1,26 @@
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-
-const publicRoutes = ["/", "/login", "/register"];
+import { type NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest) {
 	const res = NextResponse.next();
 	const supabase = createMiddlewareClient({ req, res });
-
 	const {
 		data: { session },
 	} = await supabase.auth.getSession();
 
-	const isPublicRoute = publicRoutes.includes(req.nextUrl.pathname);
-
-	if (!session && !isPublicRoute) {
-		return NextResponse.redirect(new URL("/login", req.url));
+	// Se não houver sessão e o usuário não estiver na página de login ou registro, redireciona para a página de login
+	if (
+		!session &&
+		req.url !== new URL("/login", req.url).toString() &&
+		req.url !== new URL("/register", req.url).toString()
+	) {
+		return;
 	}
 
+	// Redireciona para o dashboard se o usuário já estiver autenticado e tentar acessar login, registro ou a página inicial
 	if (
 		session &&
-		(req.nextUrl.pathname === "/login" || req.nextUrl.pathname === "/register")
+		["/login", "/register", "/"].includes(new URL(req.url).pathname)
 	) {
 		return NextResponse.redirect(new URL("/dashboard", req.url));
 	}
@@ -28,6 +28,9 @@ export async function middleware(req: NextRequest) {
 	return res;
 }
 
+// Configuração do matcher para aplicar o middleware a todas as rotas
 export const config = {
-	matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+	matcher: [
+		"/((?!_next|api|static|favicon.ico).*)", // Aplica o middleware a todas as rotas, exceto as especificadas
+	],
 };

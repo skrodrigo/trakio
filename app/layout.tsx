@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { GeistSans } from "geist/font/sans";
-import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
 	title: "Trakio",
@@ -16,14 +14,11 @@ export default async function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const supabase = createServerComponentClient({ cookies });
-
-	const {
-		data: { session },
-	} = await supabase.auth.getSession();
-
 	return (
-		<html lang="pt-BR" className="dark">
+		<html
+			lang="pt-BR"
+			className="bg-[#09090b] dark selection:bg-zinc-900 selection:text-white"
+		>
 			<body className={cn(GeistSans.className)}>{children}</body>
 		</html>
 	);

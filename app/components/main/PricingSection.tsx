@@ -7,6 +7,7 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import { CircleCheck, Lock } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export default function PricingSection() {
@@ -44,12 +45,14 @@ export default function PricingSection() {
 								</ul>
 							</CardContent>
 							<CardFooter>
-								<Button
-									variant="default"
-									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
-								>
-									Começar
-								</Button>
+								<Link href="/register" className="w-full">
+									<Button
+										variant="default"
+										className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
+									>
+										Começar
+									</Button>
+								</Link>
 							</CardFooter>
 						</Card>
 						<Card className="bg-[#09090b] border-zinc-800 transition-colors duration-300">
@@ -78,12 +81,14 @@ export default function PricingSection() {
 								</ul>
 							</CardContent>
 							<CardFooter>
-								<Button
-									variant="default"
-									className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
-								>
-									Começar
-								</Button>
+								<Link href="/register" className="w-full">
+									<Button
+										variant="default"
+										className="bg-[#FFFFFF] text-[#09090b] w-full mt-20"
+									>
+										Começar
+									</Button>
+								</Link>
 							</CardFooter>
 						</Card>
 						<Card className="bg-[#09090b] border-zinc-800 transition-colors duration-300">
