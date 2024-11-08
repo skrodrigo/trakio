@@ -79,22 +79,22 @@ export default function RegisterForm() {
 	}
 
 	return (
-		<div className="w-full max-w-md p-10 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800">
+		<div className="w-full max-w-md p-8 bg-card rounded-lg shadow-md space-y-8 border border-zinc-800 ">
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
 					<FormField
 						control={form.control}
 						name="name"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Nome</FormLabel>
+								<FormLabel className="text-zinc-200">Nome</FormLabel>
 								<FormControl>
 									<Input
 										placeholder="Seu nome"
 										{...field}
 										aria-invalid={!!form.formState.errors.name}
 										aria-describedby="name-error"
-										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border py-6 bg-zinc-800 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -107,14 +107,14 @@ export default function RegisterForm() {
 						name="email"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel className="text-zinc-200">Email</FormLabel>
 								<FormControl>
 									<Input
 										placeholder="seu@email.com"
 										{...field}
 										aria-invalid={!!form.formState.errors.email}
 										aria-describedby="email-error"
-										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border py-6 bg-zinc-800 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -127,15 +127,15 @@ export default function RegisterForm() {
 						name="password"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Senha</FormLabel>
+								<FormLabel className="text-zinc-200">Senha</FormLabel>
 								<FormControl>
 									<Input
 										type="password"
-										placeholder="••••••"
+										placeholder="Sua Senha"
 										{...field}
 										aria-invalid={!!form.formState.errors.password}
 										aria-describedby="password-error"
-										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border py-6 bg-zinc-800 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -148,15 +148,15 @@ export default function RegisterForm() {
 						name="confirmPassword"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Confirmar Senha</FormLabel>
+								<FormLabel className="text-zinc-200">Confirmar Senha</FormLabel>
 								<FormControl>
 									<Input
 										type="password"
-										placeholder="••••••"
+										placeholder="Sua Senha"
 										{...field}
 										aria-invalid={!!form.formState.errors.confirmPassword}
 										aria-describedby="confirmPassword-error"
-										className="border py-6 border-input focus-visible:ring-2 focus-visible:ring-primary"
+										className="border py-6  bg-zinc-800 border-input focus-visible:ring-2 focus-visible:ring-primary"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -184,9 +184,9 @@ export default function RegisterForm() {
 				</form>
 			</Form>
 			<div className="text-center">
-				<p className="text-muted-foreground mt-2">
+				<p className="text-zinc-700 mt-2">
 					Já tem uma conta?{" "}
-					<Link href="/login" className="text-primary hover:underline">
+					<Link href="/login" className="text-blue-500 hover:underline">
 						Faça login
 					</Link>
 				</p>

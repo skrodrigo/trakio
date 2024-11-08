@@ -1,18 +1,21 @@
-import Image from "next/image";
+import { ChevronLeft } from "lucide-react";
+
+import Link from "next/link";
 import RegisterForm from "./_components/RegisterForm";
 
 export default function RegisterPage() {
 	return (
-		<div className="min-h-screen bg-[#09090b] flex flex-col items-center justify-center px-4 space-y-8">
-			<div className="w-12 h-12">
-				<Image
-					src="/trakio-light.png"
-					alt="Trakio"
-					width={1000}
-					height={1000}
-				/>
+		<div className="h-screen bg-[#09090b] flex flex-col items-center px-4">
+			<div className="flex items-start inset-0 justify-start w-full mt-6 mb-8">
+				<Link
+					href="/"
+					className="bg-zinc-900 flex items-center justify-center	rounded-full p-2"
+				>
+					<ChevronLeft />
+				</Link>
 			</div>
-			<h2 className=" font-bold text-primary text-5xl">Registrar</h2>
+
+			<h2 className=" font-bold text-primary text-5xl mb-4">Registrar</h2>
 			<RegisterForm />
 		</div>
 	);

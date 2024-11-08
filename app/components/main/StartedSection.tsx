@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import React from "react";
 
 export default function StartedSection() {
@@ -16,12 +17,14 @@ export default function StartedSection() {
 								para tomar decisões baseadas em dados.
 							</p>
 						</div>
-						<Button
-							size="lg"
-							className="bg-[#FFFFFF] text-[#09090b] hover:bg-[#e5e7eb]"
-						>
-							Quero Começar!
-						</Button>
+						<Link href="/register" className="w-full">
+							<Button
+								size="lg"
+								className="bg-[#FFFFFF] text-[#09090b] hover:bg-[#e5e7eb]"
+							>
+								Quero Começar!
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</section>

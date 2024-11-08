@@ -6,6 +6,39 @@ import {
 } from "@/components/ui/accordion";
 import React from "react";
 
+const faqItems = [
+	{
+		value: "item-1",
+		trigger: "O que é a Trakio?",
+		content:
+			"A Trakio é uma plataforma que permite monitorar e visualizar métricas de forma intuitiva. Com gráficos dinâmicos e interativos, você pode personalizar suas análises e obter insights valiosos para sua empresa.",
+	},
+	{
+		value: "item-2",
+		trigger: "Como posso integrar meus dados com a Trakio?",
+		content:
+			"Integrar seus dados é simples e eficiente através de webhooks, permitindo que suas métricas sejam atualizadas automaticamente, sem a necessidade de inserção manual.",
+	},
+	{
+		value: "item-3",
+		trigger: "Existe um limite de métricas na versão gratuita?",
+		content:
+			"A versão gratuita da Trakio permite monitorar até 15 métricas, oferecendo uma excelente oportunidade para explorar as funcionalidades da plataforma antes de considerar um upgrade para o plano premium.",
+	},
+	{
+		value: "item-4",
+		trigger: "Quais tipos de gráficos estão disponíveis?",
+		content:
+			"A Trakio oferece uma ampla gama de gráficos, incluindo gráficos de linha, barra, pizza e área, permitindo que você escolha a melhor forma de visualizar seus dados de acordo com suas necessidades.",
+	},
+	{
+		value: "item-5",
+		trigger: "Como funciona o pagamento e os planos de assinatura?",
+		content:
+			"A Trakio oferece uma versão gratuita e um plano premium que desbloqueia funcionalidades adicionais. O gerenciamento de pagamentos é feito de forma segura e prática.",
+	},
+];
+
 export default function AboutSection() {
 	return (
 		<div>
@@ -15,58 +48,12 @@ export default function AboutSection() {
 						Perguntas Frequentes
 					</h2>
 					<Accordion type="single" collapsible className="space-y-4">
-						<AccordionItem value="item-1">
-							<AccordionTrigger>O que é a Trakio?</AccordionTrigger>
-							<AccordionContent>
-								A Trakio é uma plataforma de monitoramento de métricas que
-								oferece ferramentas de visualização de dados para empresas de
-								todos os tamanhos. Com a Trakio, você pode acompanhar métricas
-								personalizadas em gráficos dinâmicos e interativos.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem value="item-2">
-							<AccordionTrigger>
-								Como posso integrar meus dados com a Trakio?
-							</AccordionTrigger>
-							<AccordionContent>
-								Você pode integrar seus dados via webhooks, o que permite a
-								atualização automática de métricas sem necessidade de inserção
-								manual. Basta configurar os webhooks para que os dados sejam
-								enviados diretamente para a plataforma.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem value="item-3">
-							<AccordionTrigger>
-								Existe um limite de métricas na versão gratuita?
-							</AccordionTrigger>
-							<AccordionContent>
-								Sim, a versão gratuita da Trakio permite monitorar até 15
-								métricas. Para monitorar um número maior de métricas, você pode
-								fazer o upgrade para o plano premium.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem value="item-4">
-							<AccordionTrigger>
-								Quais tipos de gráficos estão disponíveis?
-							</AccordionTrigger>
-							<AccordionContent>
-								A Trakio utiliza o Recharts para oferecer uma variedade de
-								gráficos, como gráficos de linha, barra, pizza e área,
-								proporcionando visualizações de dados flexíveis e intuitivas
-								para atender diferentes necessidades de análise.
-							</AccordionContent>
-						</AccordionItem>
-						<AccordionItem value="item-5">
-							<AccordionTrigger>
-								Como funciona o pagamento e os planos de assinatura?
-							</AccordionTrigger>
-							<AccordionContent>
-								A Trakio utiliza o Stripe para gerenciar pagamentos. Você pode
-								iniciar com a versão gratuita e, caso necessite de mais
-								funcionalidades, optar pelo plano premium, que desbloqueia
-								métricas adicionais e mais recursos.
-							</AccordionContent>
-						</AccordionItem>
+						{faqItems.map(({ value, trigger, content }) => (
+							<AccordionItem key={value} value={value}>
+								<AccordionTrigger>{trigger}</AccordionTrigger>
+								<AccordionContent>{content}</AccordionContent>
+							</AccordionItem>
+						))}
 					</Accordion>
 				</div>
 			</section>
