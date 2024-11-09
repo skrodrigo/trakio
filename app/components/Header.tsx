@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 
+import { useAuth } from "@/hooks/useAuth";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuth } from "../hooks/useAuth";
 
 export default function Header() {
 	const router = useRouter();

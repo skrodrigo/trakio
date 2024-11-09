@@ -1,7 +1,7 @@
+import { supabase } from "@/app/supabase/supabase";
+import type { AuthState, AuthUser } from "@/app/types/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase";
-import type { AuthState, AuthUser } from "../types/auth";
 
 export function useAuth() {
 	const [authState, setAuthState] = useState<AuthState>({
