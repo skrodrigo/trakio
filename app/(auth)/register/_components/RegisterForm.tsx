@@ -1,8 +1,8 @@
 "use client";
 
 import { Icons } from "@/app/components/icons";
-import { supabase } from "@/app/lib/supabase";
 import { registerSchema } from "@/app/schemas/schemas";
+import { supabase } from "@/app/supabase/supabase";
 import { Button } from "@/components/ui/button";
 import {
 	Form,
